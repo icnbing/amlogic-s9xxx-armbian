@@ -672,6 +672,7 @@ confirm_version() {
             [[ "${lk}" =~ ^${ck}$ ]] && build_kernel+=("${lk}")
         done
     done
+    process_msg "This is [icbing/armbian] rebuild-L675!"
     # Check the kernel version
     [[ "${#build_kernel[@]}" -eq 0 ]] && error_msg "The kernel list is invalid for [ ${board} ]"
 }
