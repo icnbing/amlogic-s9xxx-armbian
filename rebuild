@@ -88,7 +88,7 @@ kernel_repo="https://github.com/ophub/kernel"
 default_tags="stable"
 kernel_usage=""
 # Set the list of kernels used by default(Selectable version)
-stable_kernel=("6.12.y" "6.18.y")
+stable_kernel=("6.6.y" "6.12.y" "6.18.y")
 flippy_kernel=(${stable_kernel[@]})
 beta_kernel=(${stable_kernel[@]})
 rk3588_kernel=("6.1.y")
@@ -1379,6 +1379,7 @@ loop_rebuild() {
 
 # Show welcome message
 echo -e "${STEPS} Welcome to the Armbian Rebuild Tool!"
+process_msg "This is [icbing/armbian] rebuild!"
 echo -e "${INFO} Server running on Ubuntu: [ Release: ${host_release} / Host: ${arch_info} ] \n"
 # Check script permission
 [[ "$(id -u)" == 0 ]] || error_msg "Please run this script as root: [ sudo ./${0} ]"
@@ -1396,6 +1397,7 @@ download_depends
 download_kernel
 
 # Show rebuild settings
+process_msg "This is [icbing/armbian] rebuild-settings!"
 echo -e "${INFO} [ ${#build_armbian[@]} ] lists of Armbian board: [ $(echo ${build_armbian[@]} | xargs) ]"
 echo -e "${INFO} ROOTFS type: [ ${rootfs_type} ]"
 echo -e "${INFO} Kernel Repo: [ ${kernel_repo} ], Kernel Usage: [ ${kernel_usage} ] \n"
